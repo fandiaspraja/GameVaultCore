@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: Build & Test (Swift Package)
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Versi toolchain
+        run: |
+          xcodebuild -version
+          swift --version
+
+      - name: Build
+        run: swift build -v
+
+      - name: Test + code coverage
+        run: swift test --enable-code-coverage
+
+      - name: Ringkasan coverage
+        run: |
+          PROFDATA=$(find .build -name default.profdata | head -n 1)
+          BINARY=$(find .build -path '*GameVaultCorePackageTests.xctest/Contents/MacOS/*' -type f | head -n 1)
+          {
+            echo "## Code coverage GameVaultCore"
+            echo '```'
+            xcrun llvm-cov report "$BINARY" -instr-profile "$PROFDATA" -ignore-filename-regex='(.build|Tests)/'
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
