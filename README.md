@@ -1,8 +1,8 @@
 # GameVaultCore
 
-[![CI](https://github.com/YOUR_GITHUB_USERNAME/GameVaultCore/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR_GITHUB_USERNAME/GameVaultCore/actions/workflows/ci.yml)
+[![CI](https://github.com/fandiaspraja/GameVaultCore/actions/workflows/ci.yml/badge.svg)](https://github.com/fandiaspraja/GameVaultCore/actions/workflows/ci.yml)
 
-Modul **Core** untuk aplikasi [GameVault](https://github.com/YOUR_GITHUB_USERNAME/GameVault).
+Modul **Core** untuk aplikasi [GameVault](https://github.com/fandiaspraja/GameVault).
 Isinya hanya *generic protocol* dan komponen generik Clean Architecture, sehingga bisa
 dipakai ulang oleh modul fitur mana pun.
 
@@ -15,7 +15,7 @@ dipakai ulang oleh modul fitur mana pun.
 ## Instalasi (Swift Package Manager)
 
 ```swift
-.package(url: "https://github.com/YOUR_GITHUB_USERNAME/GameVaultCore.git", from: "1.0.0")
+.package(url: "https://github.com/fandiaspraja/GameVaultCore.git", from: "1.0.0")
 ```
 
 Atau di Xcode: **File ▸ Add Package Dependencies…**, lalu tempel URL repo ini.
